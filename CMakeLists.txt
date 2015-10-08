@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
 project( BallCalibrator )
 find_package( OpenCV REQUIRED )
-add_executable( KinectTracker src/KinectTracker/BallTracking.cpp )
+add_executable( KinectTracker src/KinectTracker/BallTracking.cpp src/KinectTracker/BallTracking.h )
 target_link_libraries( KinectTracker ${OpenCV_LIBS} )
