@@ -14,9 +14,9 @@ unsigned int BallTracking::coeffColor(int r, int g, int b) const{
   }
 }
 
-vector<float> BallTracking::get2DCoordinates(const Mat& image) const{
+vector<int> BallTracking::get2DCoordinates(const Mat& image) const{
   // initialize restult vector
-  vector<float> pos(2,-1);
+  vector<int> pos(2,-1);
   // clone image
   Mat clone_image = image.clone();
   // loop through all pixel coordinates
@@ -71,7 +71,7 @@ float BallTracking::getDepthCoordinate(const float x, const float y) const{
   return 0;
 }
   
-int BallTracking::send3DCoordinates(const vector<float>& point) const{
+int BallTracking::send3DCoordinates(const vector<int>& point) const{
   return 0;
 }
 
@@ -92,8 +92,8 @@ int main(int argc, char** argv)
     cap >> bgr_image; // get a new frame from camera
 
     // get the 2D coordinates
-    vector<float> pos = ball.get2DCoordinates(bgr_image);
-    printf("x = %f, y = %f\n", pos[0], pos[1]);
+    vector<int> pos = ball.get2DCoordinates(bgr_image);
+    printf("x = %d, y = %d\n", pos[0], pos[1]);
 
     // // Threshold the HSV image, keep only the red pixels
     // Mat orange_hue_img;
